@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Tic-Tac-Toe</h1>
+      <div class="controls">
+        <label>
+          <input id="mode-toggle" type="checkbox" />
+          Play vs Computer
+        </label>
+        <button id="reset-btn">Reset Game</button>
+      </div>
+    </header>
+
+    <section class="board-area">
+      <div id="status" class="status">Player X's turn</div>
+
+      <div id="board" class="board" aria-label="Tic Tac Toe board">
+        
+        <button class="cell" data-index="0" aria-label="Cell 1"></button>
+        <button class="cell" data-index="1" aria-label="Cell 2"></button>
+        <button class="cell" data-index="2" aria-label="Cell 3"></button>
+
+        <button class="cell" data-index="3" aria-label="Cell 4"></button>
+        <button class="cell" data-index="4" aria-label="Cell 5"></button>
+        <button class="cell" data-index="5" aria-label="Cell 6"></button>
+
+        <button class="cell" data-index="6" aria-label="Cell 7"></button>
+        <button class="cell" data-index="7" aria-label="Cell 8"></button>
+        <button class="cell" data-index="8" aria-label="Cell 9"></button>
+      </div>
+    </section>
+
+    <aside class="scoreboard">
+      <div>Scores</div>
+      <div class="scores">
+        <div>X: <span id="score-x">0</span></div>
+        <div>O: <span id="score-o">0</span></div>
+        <div>Draws: <span id="score-draw">0</span></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

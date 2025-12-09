@@ -1,0 +1,141 @@
+:root {
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --accent: #10b981;
+  --muted: #94a3b8;
+  --cell: #e6eef8;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, Segoe UI, Arial;
+  background: linear-gradient(180deg, var(--bg), #071022);
+  color: var(--cell);
+}
+.app {
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+h1 {
+  font-size: 28px;
+  margin: 0;
+}
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.controls label {
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.controls input {
+  transform: scale(1.1);
+}
+
+/* board area */
+.board-area {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.6);
+}
+.status {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* board grid */
+.board {
+  width: min(480px, 100%);
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cell {
+  background: linear-gradient(180deg, #ffffff11, #ffffff06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  font-size: 48px;
+  color: var(--cell);
+  font-weight: 800;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.08s, background 0.12s, box-shadow 0.12s;
+}
+.cell:active {
+  transform: translateY(2px);
+}
+.cell.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.cell.win {
+  background: linear-gradient(
+    90deg,
+    rgba(16, 185, 129, 0.18),
+    rgba(16, 185, 129, 0.06)
+  );
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08);
+}
+
+/* scoreboard */
+.scoreboard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  border-radius: 12px;
+  height: max-content;
+}
+.scores {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--cell);
+  font-weight: 700;
+}
+
+/* responsive */
+@media (max-width: 880px) {
+  .app {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+  .scoreboard {
+    order: 3;
+  }
+  .board-area {
+    order: 2;
+  }
+  header {
+    order: 1;
+    margin-bottom: 6px;
+  }
+  .board {
+    max-width: 360px;
+  }
+}
